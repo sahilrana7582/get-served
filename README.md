@@ -72,8 +72,8 @@ To run this project locally:
 
 1. **Install Dependencies**
 
-   ```npm install
-
+   ```bash
+   npm install
    ```
 
 🚀 Usage Guide
