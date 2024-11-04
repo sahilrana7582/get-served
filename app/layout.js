@@ -1,19 +1,14 @@
 'use client'; // Add this directive to make the component a client component
 
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
 import localFont from 'next/font/local';
 import './globals.css';
 import Navbar from './component/Nav';
 import Footer from './component/Footer';
-import { usePathname } from 'next/navigation'; // Import usePathname hook
+import { usePathname, useRouter } from 'next/navigation'; // Import hooks
 import { Provider } from 'react-redux';
 import store from '@/store';
+import { useEffect, useState } from 'react';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -28,6 +23,16 @@ const geistMono = localFont({
 
 export default function RootLayout({ children }) {
   const pathname = usePathname(); // Get the current pathname
+  const router = useRouter(); // Initialize the router
+  const [hasRedirected, setHasRedirected] = useState(false); // State to track redirection
+
+  useEffect(() => {
+    // Only redirect if we haven't redirected before and the current pathname is not /login
+    if (!hasRedirected && pathname !== '/login') {
+      setHasRedirected(true); // Set the flag to true after redirecting
+      router.push('/login'); // Redirect to login
+    }
+  }, [pathname, hasRedirected, router]); // Dependencies array
 
   return (
     <ClerkProvider afterSignOutUrl="/login">
@@ -36,9 +41,8 @@ export default function RootLayout({ children }) {
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Provider store={store}>
-            {/* Conditionally render Navbar based on the current route */}
+            {/* Conditionally render Navbar and Footer */}
             {pathname !== '/login' && <Navbar />}
-
             {children}
             {pathname !== '/login' && <Footer />}
           </Provider>
