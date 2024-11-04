@@ -6,7 +6,7 @@ import { Checkout, DialogDemo } from '../component/Checkout';
 import { LoginCard } from '../component/Logincard';
 import { useSelector } from 'react-redux';
 
-const page = () => {
+const Page = () => {
   const cartData = useSelector((state) => state.cart.cartItems);
   return (
     <div className="flex min-h-screen p-10">
@@ -24,4 +24,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

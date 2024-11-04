@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/table';
 import { TableDemo } from '../component/Tabledemo';
 
-const page = () => {
+const Page = () => {
   const items = useSelector((state) => state.cart.orders);
 
   return (
@@ -55,4 +55,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

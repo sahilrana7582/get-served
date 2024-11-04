@@ -22,7 +22,7 @@ const page = () => {
             <br />
           </h2>
           <span className="text-white text-base font-semibold">
-            Don't have account
+            Don not have account
           </span>
         </div>
 

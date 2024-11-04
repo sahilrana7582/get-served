@@ -17,7 +17,7 @@ const Home = ({ data }) => {
     setTimeout(() => {
       setLoading(!loading);
     }, 1000);
-  }, []);
+  }, [data.recipes, dispatch]);
 
   return (
     <div className="p-4  min-h-screen">

@@ -25,7 +25,7 @@ const Cart = () => {
   const totalQuantity = useSelector((state) => state?.cart?.quantity);
   const dispatch = useDispatch();
   useEffect(() => {
-    setLoader(!loader);
+    setLoader((prev) => !prev);
   }, []);
 
   return (
