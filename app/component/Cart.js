@@ -29,10 +29,10 @@ const Cart = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen min-h-screen p-10 overflow-auto">
-      <Table className="max-h-[500px]">
+    <div className="w-full  min-h-[300px] max-h-[500px] lg:p-10 overflow-auto">
+      <Table className="max-h-[500px] flex-col">
         <TableHeader>
-          <TableRow>
+          <TableRow className="hidden lg:hidden">
             <TableHead className="w-[150px]">Image</TableHead>
             <TableHead>Dish Name</TableHead>
             <TableHead>Serving</TableHead>
@@ -42,17 +42,13 @@ const Cart = () => {
             <TableHead className="text-left"></TableHead>
           </TableRow>
         </TableHeader>
-        {loader ? (
-          <LinearProgress />
-        ) : (
-          <TableBody>
-            {items.map((item) => (
-              <TableDemo data={item} key={item.id} />
-            ))}
-          </TableBody>
-        )}
+
+        <TableBody>
+          {items.map((item) => (
+            <TableDemo data={item} key={item.id} />
+          ))}
+        </TableBody>
       </Table>
-      <Separator />
     </div>
   );
 };

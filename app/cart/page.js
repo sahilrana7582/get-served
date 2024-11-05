@@ -9,15 +9,11 @@ import { useSelector } from 'react-redux';
 const Page = () => {
   const cartData = useSelector((state) => state.cart.cartItems);
   return (
-    <div className="flex min-h-screen p-10">
-      <div className="w-1/2 max-h-[450px] px-6 mb-10">
+    <div className="flex min-h-screen lg:p-10 py-10 flex-col lg:flex-row">
+      <div className="w-full max-h-[450px] px-6 mb-10 lg:w-1/2">
         <Cart />
-        <Separator />
-        <h1 className="text-2xl flex font-semibold justify-between">
-          Total <span>${cartData.length * 100}</span>
-        </h1>
       </div>
-      <div className="border-l flex justify-center w-1/2 h-screen items-center">
+      <div className="border-t relative mt-10 flex justify-center p-10  w-full lg:w-1/2 lg:border-l h-fit items-center lg:h-screen">
         <Checkout />
       </div>
     </div>

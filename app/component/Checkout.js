@@ -35,7 +35,7 @@ export function Checkout() {
     }, 1000);
   };
   return (
-    <Card className="w-[400px] h-fit">
+    <Card className="w-[700px] h-fit">
       <CardHeader>
         <CardTitle className="flex justify-center text-2xl">Checkout</CardTitle>
       </CardHeader>

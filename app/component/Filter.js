@@ -46,11 +46,7 @@ const Filter = () => {
     dispatch(setCartItems(oldDataRef.current));
   }, [dispatch, resetSearch]);
 
-  // useEffect(() => {
-  //   if (filteredData.length) {
-  //     dispatch(setCartItems(filteredData)); // Only dispatch if there are results
-  //   }
-  // }, [dispatch, filteredData]); // Depend on filteredData
+
 
   const handleOldData = () => {
     setReset(!resetSearch);

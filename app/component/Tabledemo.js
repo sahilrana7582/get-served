@@ -27,7 +27,10 @@ export function TableDemo({ data }) {
     }, 1000);
   };
   return (
-    <TableRow key={data.id}>
+    <TableRow
+      key={data.id}
+      className="flex justify-between  lg:flex-row lg:justify-evenly lg:items-center"
+    >
       <TableCell className="font-medium">
         <div>
           <Image src={data.image} width={70} height={70} alt="recipe"></Image>
@@ -35,10 +38,10 @@ export function TableDemo({ data }) {
       </TableCell>
 
       <TableCell className="font-medium">{data.name}</TableCell>
-      <TableCell>{data.servings}</TableCell>
-      <TableCell>{data.prepTimeMinutes}</TableCell>
+      <TableCell className="hidden sm:block">{data.servings}</TableCell>
+      <TableCell className="hidden sm:block">{data.prepTimeMinutes}</TableCell>
 
-      <TableCell>{data.rating}</TableCell>
+      <TableCell className="hidden sm:block">{data.rating}</TableCell>
       <TableCell>$ 100</TableCell>
       <TableCell>
         {loader ? (

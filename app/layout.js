@@ -26,14 +26,6 @@ export default function RootLayout({ children }) {
   const router = useRouter(); // Initialize the router
   const [hasRedirected, setHasRedirected] = useState(false); // State to track redirection
 
-  useEffect(() => {
-    // Only redirect if we haven't redirected before and the current pathname is not /login
-    if (!hasRedirected && pathname !== '/login') {
-      setHasRedirected(true); // Set the flag to true after redirecting
-      router.push('/login'); // Redirect to login
-    }
-  }, [pathname, hasRedirected, router]); // Dependencies array
-
   return (
     <ClerkProvider afterSignOutUrl="/login">
       <html lang="en">
