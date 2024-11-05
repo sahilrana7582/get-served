@@ -16,6 +16,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { TableDemo } from '../component/Tabledemo';
+import { Order } from '../component/Order';
 
 const Page = () => {
   const items = useSelector((state) => state.cart.orders);
@@ -31,21 +32,9 @@ const Page = () => {
       ) : (
         <ScrollArea>
           <Table className="max-h-[500px]">
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[150px]">Image</TableHead>
-                <TableHead>Dish Name</TableHead>
-                <TableHead>Serving</TableHead>
-                <TableHead className="text-left">Ratings</TableHead>
-                <TableHead className="text-left">Prep Time</TableHead>
-                <TableHead className="text-left">Price $</TableHead>
-                <TableHead className="text-left">Status</TableHead>
-              </TableRow>
-            </TableHeader>
-
             <TableBody>
               {items.map((item) => (
-                <TableDemo data={item} key={item.id} />
+                <Order data={item} key={item.id} />
               ))}
             </TableBody>
           </Table>

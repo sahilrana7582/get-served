@@ -29,7 +29,7 @@ const Cart = () => {
   }, []);
 
   return (
-    <div className="w-full  min-h-[300px] max-h-[500px] lg:p-10 overflow-auto">
+    <div className="w-full  min-h-[300px] max-h-[500px] lg:p-4 px-10 lg:px-2 overflow-auto">
       <Table className="max-h-[500px] flex-col">
         <TableHeader>
           <TableRow className="hidden lg:hidden">
